@@ -22,6 +22,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>React Calculator</h1>
       <input type="text" value={input} readOnly />
       <div className="result">{result}</div>
       <div className="buttons">
