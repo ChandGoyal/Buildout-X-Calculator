@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
 
 function App() {
+  const [input, setInput] = useState("");
+  const [result, setResult] = useState("");
+
+  const handleClick = (value) => {
+    if (value === "=") {
+      try {
+        setResult(eval(input));
+      } catch (error) {
+        setResult("Error");
+      }
+    } else if (value === "C") {
+      setInput("");
+      setResult("");
+    } else {
+      setInput(input + value);
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input type="text" value={input} readOnly />
+      <div className="result">{result}</div>
+      <div className="buttons">
+        {[7, 8, 9, "+", 4, 5, 6, "-", 1, 2, 3, "*", "C", 0, "/", "="].map(
+          (item, index) => (
+            <button key={index} onClick={() => handleClick(item)}>
+              {item}
+            </button>
+          )
+        )}
+      </div>
     </div>
   );
 }
