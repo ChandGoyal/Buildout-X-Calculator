@@ -8,7 +8,11 @@ function App() {
   const handleClick = (value) => {
     if (value === "=") {
       try {
-        setResult(eval(input));
+        if (input === "") {
+          setResult("Error: Incomplete Expression");
+        } else {
+          setResult(eval(input));
+        }
       } catch (error) {
         setResult("Error");
       }
