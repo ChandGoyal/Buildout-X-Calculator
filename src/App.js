@@ -26,7 +26,7 @@ function App() {
       <input type="text" value={input} readOnly />
       <div className="result">{result}</div>
       <div className="buttons">
-        {[7, 8, 9, "+", 4, 5, 6, "-", 1, 2, 3, "*", "C", 0, "/", "="].map(
+        {[7, 8, 9, "+", 4, 5, 6, "-", 1, 2, 3, "*", "C", 0, "=", "/"].map(
           (item, index) => (
             <button key={index} onClick={() => handleClick(item)}>
               {item}
